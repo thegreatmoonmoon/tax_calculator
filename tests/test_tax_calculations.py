@@ -46,7 +46,7 @@ def test_result_calc_tax(set_module_path):
     calc_func = tclc.calc_tax_factory("rent")
     result = calc_func(tclc.convert_to_money_decimal("3030.24"))
 
-    assert result == tclc.convert_to_money_decimal("45.4536")
+    assert result == Decimal("45.4536")
 
 
 def test_round_to_integers_decimal(set_module_path):

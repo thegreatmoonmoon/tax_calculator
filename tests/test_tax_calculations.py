@@ -47,3 +47,11 @@ def test_result_calc_tax(set_module_path):
     result = calc_func(tclc.convert_to_money_decimal("3030.24"))
 
     assert result == tclc.convert_to_money_decimal("45.4536")
+
+
+def test_round_to_integers_decimal(set_module_path):
+    from tax_calculator_refactored import tax_calculations as tclc
+
+    assert tclc.round_to_integers_decimal("22.22") == Decimal("22")
+    assert tclc.round_to_integers_decimal("22.5") == Decimal("23")
+    assert tclc.round_to_integers_decimal("22.66") == Decimal("23")

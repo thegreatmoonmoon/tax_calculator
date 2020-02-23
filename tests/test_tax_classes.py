@@ -24,3 +24,13 @@ def test_TaxBase_attr_get():
     tax_base = tcls.TaxBase()
     tax_base(Decimal("23.32"))
     assert tax_base.tax_calculation_base == Decimal("23.32")
+
+
+def test_MandateCalculationContainer():
+    with pytest.raises(TypeError):
+        mandate_calculation_container = tcls.MandateCalculationContainer()
+        mandate_calculation_container.collected_tax = 20
+
+    with pytest.raises(TypeError):
+        mandate_calculation_container = tcls.MandateCalculationContainer()
+        mandate_calculation_container.tax_advance = 20

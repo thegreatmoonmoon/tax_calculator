@@ -73,11 +73,10 @@ class EmploymentCalculationContainer(CalculationContainer):
     rounded_income_tax_base = PositiveDecimal()
     income_tax_18 = PositiveDecimal()
     collected_tax = PositiveDecimal()
-    tax_advance = PositiveDecimal
+    tax_advance = PositiveDecimal()
     tax_office_advance = PositiveDecimal()
     rounded_tax_office_advance = PositiveDecimal()
     pay = PositiveDecimal()
-
 
     def __str__(self) -> None:
         tax_data = f"""
@@ -114,11 +113,10 @@ class MandateCalculationContainer(CalculationContainer):
     rounded_income_tax_base = PositiveDecimal()
     income_tax_18 = PositiveDecimal()
     collected_tax = PositiveDecimal()
-    tax_advance = PositiveDecimal
+    tax_advance = PositiveDecimal()
     tax_office_advance = PositiveDecimal()
     rounded_tax_office_advance = PositiveDecimal()
     pay = PositiveDecimal()
-
 
     def __str__(self) -> None:
         tax_data = f"""

@@ -83,7 +83,7 @@ def calculation_logic(calc_container, calc_funcs):
 
 @calculation_logic.register(tax_classes.EmploymentCalculationContainer)
 def _(calc_container, calc_funcs, tax_calc_base):
-    
+
     # Store social tax calculations in calc container
     calc_container.retirement_tax = calc_funcs['retirement'](tax_calc_base)
     calc_container.rent_tax = calc_funcs['rent'](tax_calc_base)
@@ -110,13 +110,13 @@ def _(calc_container, calc_funcs, tax_calc_base):
     # Store income tax calculations in calc container
     calc_container.income_tax_18 = calc_funcs['tax_advance'](calc_container.rounded_income_tax_base)
     calc_container.collected_tax = (
-        calc_container.income_tax_18 - 
+        calc_container.income_tax_18 -
         tax_constants.TAX_DEDUCTIBLE_AMOUNT
     )
 
     # Store tax office advance calculations in calc container
     calc_container.tax_office_advance = (
-        calc_container.income_tax_18 - 
+        calc_container.income_tax_18 -
         calc_container.health_lower_tax -
         tax_constants.TAX_DEDUCTIBLE_AMOUNT
     )
@@ -138,7 +138,7 @@ def _(calc_container, calc_funcs, tax_calc_base):
 
 @calculation_logic.register(tax_classes.MandateCalculationContainer)
 def _(calc_container, calc_funcs, tax_calc_base):
-    
+
     # Store social tax calculations in calc container
     calc_container.retirement_tax = calc_funcs['retirement'](tax_calc_base)
     calc_container.rent_tax = calc_funcs['rent'](tax_calc_base)
@@ -173,7 +173,7 @@ def _(calc_container, calc_funcs, tax_calc_base):
 
     # Store tax office advance calculations in calc container
     calc_container.tax_office_advance = (
-        calc_container.income_tax_18 - 
+        calc_container.income_tax_18 -
         calc_container.health_lower_tax
     )
     calc_container.rounded_tax_office_advance = round_to_integers_decimal(calc_container.tax_office_advance)

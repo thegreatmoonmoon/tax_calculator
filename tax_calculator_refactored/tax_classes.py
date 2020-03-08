@@ -52,6 +52,9 @@ class ContractType:
     def __call__(self, contract_type) -> None:
         self.contract_type = contract_type
 
+    def __str__(self) -> str:
+        return str(self.contract_type)
+
 
 class CalculationContainer:
     """Container base class to store tax calculations."""
@@ -185,3 +188,24 @@ Please select your employment contract type for the calculations:
             else:
                 self.input_target(user_input_int)
                 break
+
+
+def calc_container_class_factory(contract_type: ContractType) -> CalculationContainer:
+    """Class factory to return a concrete CalculationContainer class implementation
+    based on the value of contract_type arg. Closely coupled with the ContractInputInterface
+    implementation (should become a class method?).
+
+    Args:
+        param1: Str representation of an instance of the ContractType class.
+
+    Returns:
+        Specific instance of a specific implementation of the CalculationContainer object.
+    """
+
+    if str(contract_type) == "1":
+        return EmploymentCalculationContainer()
+    elif str(contract_type) == "2":
+        return MandateCalculationContainer()
+    else:
+        raise NotImplementedError(f"No specific implementation of CalculationContainer"
+                                  f" for contract_type < {contract_type} >")

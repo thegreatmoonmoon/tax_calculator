@@ -77,7 +77,7 @@ def setup_tax_calc_funcs() -> dict:
 
 
 @singledispatch
-def calculation_logic(calc_container, calc_funcs):
+def calculation_logic(calc_container, calc_funcs, tax_calc_base):
     raise TypeError(f"Dispatcher for calc container type {type(calc_container)} not implemented.")
 
 

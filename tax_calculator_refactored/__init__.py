@@ -17,12 +17,7 @@ def main():
     contract_input.get_user_input()
 
     # Instantiate appropriate calculation container
-    if contract_type.contract_type == 1:
-        calc_container = tcls.EmploymentCalculationContainer()
-    elif contract_type.contract_type == 2:
-        calc_container = tcls.MandateCalculationContainer()
-    else:
-        raise ValueError("Unknown contract type.")
+    calc_container = tcls.calc_container_class_factory(contract_type)
 
     # Setup a dictionary with corresponding functions for calculations
     tax_calc_funcs = tc.setup_tax_calc_funcs()
